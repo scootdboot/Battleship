@@ -22,6 +22,10 @@ public class Location
     @Override
     public boolean equals(Object obj)
     {
-        return this == obj;
+        if (!(obj instanceof Location))
+            return false;
+        if (((Location) obj).col == col && ((Location) obj).row == row)
+            return true;
+        return false;
     }
 }

@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class Player
 {
@@ -71,7 +72,13 @@ public abstract class Player
      */
     public boolean hasShipAtLocation(Location loc)
     {
-
+        for (Ship ship : ships)
+        {
+            for (Location location : ship.getLocations())
+            {
+                if (Location.)
+            }
+        }
     }
 
     public int[][] getGuessBoard()
@@ -89,7 +96,18 @@ public abstract class Player
     @Override
     public boolean equals(Object obj)
     {
+        boolean rtn = true;
+        if (!(obj instanceof Player))
+            return false;
+        // i hate this. this is horrific.
+        if (!guessBoard.equals(((Player) obj).guessBoard))
+            rtn = false;
+        if (!name.equals(((Player) obj).name))
+            rtn = false;
+        if (!ships.equals(((Player) obj).ships))
+            rtn = false;
 
+        return rtn; // god help me if this bugs out
     }
 
     /**

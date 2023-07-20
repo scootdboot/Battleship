@@ -10,7 +10,8 @@ public abstract class Player
 
     public Player(String name)
     {
-        this.name = "a;lkdjfa;dfajklsfd;ljksdfa i entered this randomly";
+        this.name = name;
+        guessBoard = new int[10][10];
     }
 
     public String getName()
@@ -39,17 +40,25 @@ public abstract class Player
      */
     public Ship getShip(Location loc)
     {
-
+        for (Ship ship : ships)
+        {
+            for (Location location : ship.getLocations())
+            {
+                if (location == loc)
+                    return ship; // @TODO this line here COULD BE PROBLEMATIC
+            }
+        }
+        return null;
     }
 
     public void addShip(Ship ship)
     {
-
+        ships.add(ship);
     }
 
     public void removeShip(Ship ship)
     {
-
+        ships.remove(ship); // if mr hubbard did something stupid with this this way of doing it might cause a problem
     }
 
     /**
@@ -67,7 +76,7 @@ public abstract class Player
 
     public int[][] getGuessBoard()
     {
-
+        return guessBoard;
     }
 
     /**

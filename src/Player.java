@@ -12,7 +12,6 @@ public abstract class Player
     public Player(String name)
     {
         this.name = name;
-        guessBoard = new int[10][10];
     }
 
     public String getName()
@@ -76,9 +75,12 @@ public abstract class Player
         {
             for (Location location : ship.getLocations())
             {
-                if (Location.)
+                if (location.equals(loc))
+                    return true;
             }
         }
+
+        return false;
     }
 
     public int[][] getGuessBoard()
@@ -91,7 +93,7 @@ public abstract class Player
      *   instance variables are equivalent.
      *
      * @param obj
-     * @return
+     * @return boolean
      */
     @Override
     public boolean equals(Object obj)
